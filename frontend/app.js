@@ -1,4 +1,8 @@
 // app.js - fully working frontend for Mini Mart System
+//not working properly
+
+
+
 
 const API_CUSTOMERS = 'http://localhost:8008/api/customers';
 const API_PAYMENTS = 'http://localhost:8008/api/payments';
@@ -152,3 +156,4 @@ searchInput.addEventListener('input', () => fetchPayments(searchInput.value));
 fetchCustomers();
 fetchPayments();
 fetchTotalDueAll();
+
