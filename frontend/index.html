@@ -1,70 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Mart System</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta http-equiv="refresh" content="0; url=customers.html">
 </head>
-<body class="bg-gray-100 text-gray-800">
-
-  <div class="container mx-auto p-6">
-
-    <h1 class="text-3xl font-bold mb-6 text-center">Mini Mart System</h1>
-
-    <!-- Add Customer -->
-    <section class="mb-6 bg-white p-4 rounded shadow">
-      <h2 class="text-xl font-semibold mb-2">Add Customer</h2>
-      <form id="customer-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input id="name" type="text" placeholder="Name" class="p-2 border rounded" required>
-        <input id="email" type="email" placeholder="Email" class="p-2 border rounded">
-        <input id="phone" type="text" placeholder="Phone" class="p-2 border rounded">
-        <input id="address" type="text" placeholder="Address" class="p-2 border rounded">
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 col-span-full">Add Customer</button>
-      </form>
-    </section>
-
-    <!-- Add Payment -->
-    <section class="mb-6 bg-white p-4 rounded shadow">
-      <h2 class="text-xl font-semibold mb-2">Add Payment</h2>
-      <form id="payment-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <select id="customer" class="p-2 border rounded" required></select>
-        <input id="description" type="text" placeholder="Description" class="p-2 border rounded">
-        <input id="amount" type="number" placeholder="Amount" class="p-2 border rounded" required>
-        <select id="status" class="p-2 border rounded">
-          <option value="Pending">Pending</option>
-          <option value="Paid">Paid</option>
-        </select>
-        <input id="date" type="datetime-local" class="p-2 border rounded">
-        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 col-span-full">Add Payment</button>
-      </form>
-    </section>
-
-    <!-- Payments Table with Search -->
-    <section class="bg-white p-4 rounded shadow">
-      <h2 class="text-xl font-semibold mb-2">Payments</h2>
-      <input type="text" id="search-input" class="p-2 border rounded mb-2 w-full md:w-1/3" placeholder="Search by customer, email, phone, description">
-
-      <table class="w-full border-collapse border mt-2">
-        <thead class="bg-gray-200">
-          <tr>
-            <th class="border px-4 py-2">Customer</th>
-            <th class="border px-4 py-2">Description</th>
-            <th class="border px-4 py-2">Amount</th>
-            <th class="border px-4 py-2">Status</th>
-            <th class="border px-4 py-2">Date</th>
-            <th class="border px-4 py-2">Action</th>
-          </tr>
-        </thead>
-        <tbody id="payment-list"></tbody>
-      </table>
-
-      <p class="mt-2 font-semibold" id="filtered-total-due">Total Due (Filtered): 0</p>
-      <p class="mt-1 font-semibold">Total Due All Customers: <span id="total-due-all">0</span></p>
-    </section>
-
-  </div>
-
-  <script type="module" src="./app.js"></script>
-</body>
+<body></body>
 </html>
