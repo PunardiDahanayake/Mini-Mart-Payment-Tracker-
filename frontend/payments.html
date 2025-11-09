@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Management - Mini Mart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Excel export library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<!-- PDF export library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- jsPDF AutoTable plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen p-6">
+  <button id="go-to-customer" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+  Go to Customers
+</button>
+
+  <div class="max-w-5xl mx-auto bg-white p-6 rounded-2xl shadow-md">
+    <h1 class="text-3xl font-bold mb-6 text-center text-indigo-600">💳 Payment Management</h1>
+
+    <!-- Add Payment Form -->
+    <form id="payment-form" class="grid grid-cols-2 gap-4 mb-6">
+      <div>
+        <label class="block mb-1 font-medium">Customer</label>
+        <select id="customerId" class="w-full border rounded-lg px-3 py-2" required></select>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium">Description</label>
+        <input type="text" id="description" class="w-full border rounded-lg px-3 py-2">
+      </div>
+      <div>
+        <label class="block mb-1 font-medium">Amount</label>
+        <input type="number" id="amount" class="w-full border rounded-lg px-3 py-2" required>
+      </div>
+      <div>
+        <label class="block mb-1 font-medium">Status</label>
+        <select id="status" class="w-full border rounded-lg px-3 py-2">
+          <option value="Pending">Pending</option>
+          <option value="Paid">Paid</option>
+        </select>
+      </div>
+      <div class="col-span-2 text-center">
+        <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700">Add Payment</button>
+      </div>
+    </form>
+<br><br>
+  <div class="mb-4 flex justify-between items-center">
+  <!-- Report Buttons on Left -->
+  <div class="report-buttons flex gap-2">
+    <button id="export-excel" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Export Excel</button>
+    <button id="export-pdf" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Export PDF</button>
+  </div>
+
+  <!-- Search Bar on Right -->
+  <input type="text" id="search-input" placeholder="Search payments..." class="border px-3 py-2 rounded-lg w-1/2">
+</div>
+
+<br><br>
+    <!-- Payments Table -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full border rounded-lg">
+        <thead class="bg-indigo-500 text-white">
+          <tr>
+            <th class="px-4 py-2 text-left">Customer</th>
+            <th class="px-4 py-2 text-left">Description</th>
+            <th class="px-4 py-2 text-left">Amount</th>
+            <th class="px-4 py-2 text-left">Status</th>
+            <th class="px-4 py-2 text-left">Date</th>
+            <th class="px-4 py-2 text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="payment-list"></tbody>
+      </table>
+    </div>
+
+    <!-- Totals 
+    <div class="mt-6 p-4 bg-gray-100 rounded-lg text-center">
+      <h2 class="font-semibold text-lg">💰 Total Due Balance:Rs. <span id="total-due" class="text-red-500">0</span></h2>
+    </div>
+  </div> -->
+
+  <!-- Add this somewhere in your HTML, outside the table -->
+<!-- Total Due Box -->
+<div id="total-due-container" 
+     style="position:fixed; top:80px; right:20px; 
+            background:#fff3cd; /* light yellow for visibility */
+            color:#856404;      /* dark text for contrast */
+            padding:25px 35px; 
+            border:2px solid #ffeeba; 
+            border-radius:12px; 
+            box-shadow:0 4px 12px rgba(0,0,0,0.2); 
+            z-index:1000;
+            text-align:center;
+            font-family:Arial, sans-serif;
+            font-size:24px;
+            font-weight:bold;">
+  Total Due<br>
+  <span id="total-due" style="font-size:36px; display:block; margin-top:10px;">0.00</span>
+</div>
+
+  <script src="payments.js"></script>
+</body>
+</html>
